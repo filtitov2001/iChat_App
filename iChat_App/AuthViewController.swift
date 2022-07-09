@@ -11,7 +11,7 @@ import UIKit
 
 class AuthViewController: UIViewController {
     
-    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
+    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFill)
     
     let googleLabel = UILabel(text: "Get started with")
     let emailLabel = UILabel(text: "Or sign up with")
@@ -27,7 +27,10 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupConstraints()
     }
-    
+}
+
+//MARK: - Setup constraints
+extension AuthViewController {
     private func setupConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -45,8 +48,11 @@ class AuthViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 50),
+            logoImageView.widthAnchor.constraint(equalToConstant: 350)
         ])
+        
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),

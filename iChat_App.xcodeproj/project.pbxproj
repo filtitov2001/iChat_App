@@ -10,7 +10,6 @@
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
-		2B70972A28797AFD008C56CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B70972928797AFD008C56CE /* Assets.xcassets */; };
 		2B70972D28797AFD008C56CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B70972B28797AFD008C56CE /* LaunchScreen.storyboard */; };
 		2B70973528798238008C56CE /* Extension + UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70973428798238008C56CE /* Extension + UILabel.swift */; };
 		2B7097382879827F008C56CE /* Entension + StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7097372879827F008C56CE /* Entension + StackView.swift */; };
@@ -19,6 +18,9 @@
 		2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70973D28798330008C56CE /* Extension + UIFont.swift */; };
 		2B7097402879835A008C56CE /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70973F2879835A008C56CE /* Extension + UIImageView.swift */; };
 		2B7097422879857D008C56CE /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7097412879857D008C56CE /* ButtonFormView.swift */; };
+		2B70974928799C63008C56CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B70974828799C63008C56CE /* Assets.xcassets */; };
+		2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70974A2879A330008C56CE /* SignUpViewController.swift */; };
+		2B70974D2879A9DF008C56CE /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70974C2879A9DF008C56CE /* OneLineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +28,6 @@
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2B70972428797AFA008C56CE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		2B70972928797AFD008C56CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B70972C28797AFD008C56CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B70972E28797AFD008C56CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B70973428798238008C56CE /* Extension + UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UILabel.swift"; sourceTree = "<group>"; };
@@ -36,6 +37,9 @@
 		2B70973D28798330008C56CE /* Extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
 		2B70973F2879835A008C56CE /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		2B7097412879857D008C56CE /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
+		2B70974828799C63008C56CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B70974A2879A330008C56CE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2B70974C2879A9DF008C56CE /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +75,11 @@
 				2B70972028797AFA008C56CE /* AppDelegate.swift */,
 				2B70972228797AFA008C56CE /* SceneDelegate.swift */,
 				2B70972428797AFA008C56CE /* AuthViewController.swift */,
+				2B70974A2879A330008C56CE /* SignUpViewController.swift */,
 				2B70974328798BD1008C56CE /* Views */,
 				2B7097362879824B008C56CE /* Extensions */,
-				2B70972928797AFD008C56CE /* Assets.xcassets */,
 				2B70972B28797AFD008C56CE /* LaunchScreen.storyboard */,
+				2B70974828799C63008C56CE /* Assets.xcassets */,
 				2B70972E28797AFD008C56CE /* Info.plist */,
 			);
 			path = iChat_App;
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7097412879857D008C56CE /* ButtonFormView.swift */,
+				2B70974C2879A9DF008C56CE /* OneLineTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,8 +165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B70974928799C63008C56CE /* Assets.xcassets in Resources */,
 				2B70972D28797AFD008C56CE /* LaunchScreen.storyboard in Resources */,
-				2B70972A28797AFD008C56CE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B70974D2879A9DF008C56CE /* OneLineTextField.swift in Sources */,
+				2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */,
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
 				2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */,
 				2B7097402879835A008C56CE /* Extension + UIImageView.swift in Sources */,
