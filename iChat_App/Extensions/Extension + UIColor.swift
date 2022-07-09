@@ -12,7 +12,7 @@ import UIKit
 extension UIColor {
     
     static func buttonRed() -> UIColor {
-        return #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1)
+        return #colorLiteral(red: 0.5411764706, green: 0.1176470588, blue: 0.2784313725, alpha: 1)
     }
     
     static func mainWhite() -> UIColor {
