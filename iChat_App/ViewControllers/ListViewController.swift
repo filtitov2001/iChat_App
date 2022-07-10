@@ -47,12 +47,14 @@ class ListViewController: UIViewController {
     }
     
     private func setupSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        
         navigationController?.navigationBar.barTintColor = .secondarySystemBackground
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
@@ -68,8 +70,8 @@ class ListViewController: UIViewController {
             ActiveChatCell.self,
             forCellWithReuseIdentifier: ActiveChatCell.reuseID)
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "waiting")
+            WaitingChatCell.self,
+            forCellWithReuseIdentifier: WaitingChatCell.reuseID)
         
     }
     
@@ -94,9 +96,7 @@ extension ListViewController {
             case .activeChats:
                 return self.configure(cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "waiting", for: indexPath)
-                cell.backgroundColor = .systemRed
-                return cell
+                return self.configure(cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
         })
     }

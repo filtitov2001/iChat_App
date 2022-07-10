@@ -33,6 +33,8 @@
 		2B709767287B0185008C56CE /* Extension + Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709766287B0185008C56CE /* Extension + Bundle.swift */; };
 		2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709769287B0ED8008C56CE /* ActiveChatCell.swift */; };
 		2B70976C287B5190008C56CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70976B287B5190008C56CE /* GradientView.swift */; };
+		2B70976E287B5D1A008C56CE /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70976D287B5D1A008C56CE /* WaitingChatCell.swift */; };
+		2B709771287B616B008C56CE /* SelfConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709770287B616B008C56CE /* SelfConfigureCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		2B709766287B0185008C56CE /* Extension + Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Bundle.swift"; sourceTree = "<group>"; };
 		2B709769287B0ED8008C56CE /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		2B70976B287B5190008C56CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2B70976D287B5D1A008C56CE /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
+		2B709770287B616B008C56CE /* SelfConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfigureCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 				2B70972228797AFA008C56CE /* SceneDelegate.swift */,
 				2B709758287AD91F008C56CE /* SignIn&Auth ViewControllers */,
 				2B709759287AD946008C56CE /* ViewControllers */,
+				2B70976F287B6145008C56CE /* Protocols */,
 				2B70974328798BD1008C56CE /* Views */,
 				2B7097362879824B008C56CE /* Extensions */,
 				2B70972B28797AFD008C56CE /* LaunchScreen.storyboard */,
@@ -163,8 +168,17 @@
 			isa = PBXGroup;
 			children = (
 				2B709769287B0ED8008C56CE /* ActiveChatCell.swift */,
+				2B70976D287B5D1A008C56CE /* WaitingChatCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		2B70976F287B6145008C56CE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2B709770287B616B008C56CE /* SelfConfigureCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +270,12 @@
 				2B70973C287982D4008C56CE /* Extension + UIColor.swift in Sources */,
 				2B7097422879857D008C56CE /* ButtonFormView.swift in Sources */,
 				2B70973528798238008C56CE /* Extension + UILabel.swift in Sources */,
+				2B70976E287B5D1A008C56CE /* WaitingChatCell.swift in Sources */,
 				2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */,
 				2B70974F2879B64E008C56CE /* LoginViewController.swift in Sources */,
 				2B709767287B0185008C56CE /* Extension + Bundle.swift in Sources */,
 				2B70973A287982A4008C56CE /* Extension + UIButton.swift in Sources */,
+				2B709771287B616B008C56CE /* SelfConfigureCell.swift in Sources */,
 				2B709755287A2C50008C56CE /* Extension + UISegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

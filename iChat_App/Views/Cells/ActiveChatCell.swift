@@ -9,11 +9,6 @@
 
 import UIKit
 
-protocol SelfConfigureCell {
-    static var reuseID: String { get }
-    func configure(with value: MChat)
-}
-
 class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
     static var reuseID: String = "ActiveChatCell"
     
@@ -26,7 +21,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraints()
-        backgroundColor = .tertiarySystemBackground
+        backgroundColor = .secondarySystemBackground
         
         self.layer.cornerRadius = 4
         self.clipsToBounds = true
