@@ -47,7 +47,7 @@ class ListViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        navigationController?.navigationBar.barTintColor = .mainWhite()
+        navigationController?.navigationBar.barTintColor = .secondarySystemBackground
         navigationController?.navigationBar.shadowImage = UIImage()
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -61,12 +61,12 @@ class ListViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .mainWhite()
+        collectionView.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "active")
+            ActiveChatCell.self,
+            forCellWithReuseIdentifier: ActiveChatCell.reuseID)
         collectionView.register(
             UICollectionViewCell.self,
             forCellWithReuseIdentifier: "waiting")
@@ -85,22 +85,29 @@ class ListViewController: UIViewController {
 // MARK: - Data source
 extension ListViewController {
     private func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { collectionView, indexPath, _ in
+        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { collectionView, indexPath, chat in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError()
             }
             
             switch section {
             case .activeChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "active", for: indexPath)
-                cell.backgroundColor = .systemBlue
-                return cell
+                return self.configure(cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChats:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "waiting", for: indexPath)
                 cell.backgroundColor = .systemRed
                 return cell
             }
         })
+    }
+    
+    private func configure<T: SelfConfigureCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseID, for: indexPath) as? T else {
+            fatalError()
+        }
+        
+        cell.configure(with: value)
+        return cell
     }
 }
 
