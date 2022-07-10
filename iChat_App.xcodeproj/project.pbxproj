@@ -28,6 +28,9 @@
 		2B709757287AD45E008C56CE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709756287AD45E008C56CE /* ListViewController.swift */; };
 		2B70975B287AD9FC008C56CE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70975A287AD9FC008C56CE /* MainTabBarController.swift */; };
 		2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70975C287ADA45008C56CE /* PeopleViewController.swift */; };
+		2B709764287B0155008C56CE /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B709762287B0155008C56CE /* waitingChats.json */; };
+		2B709765287B0155008C56CE /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B709763287B0155008C56CE /* activeChats.json */; };
+		2B709767287B0185008C56CE /* Extension + Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709766287B0185008C56CE /* Extension + Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		2B709756287AD45E008C56CE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2B70975A287AD9FC008C56CE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2B70975C287ADA45008C56CE /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		2B709762287B0155008C56CE /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
+		2B709763287B0155008C56CE /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
+		2B709766287B0185008C56CE /* Extension + Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Bundle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 				2B7097362879824B008C56CE /* Extensions */,
 				2B70972B28797AFD008C56CE /* LaunchScreen.storyboard */,
 				2B70974828799C63008C56CE /* Assets.xcassets */,
+				2B709763287B0155008C56CE /* activeChats.json */,
+				2B709762287B0155008C56CE /* waitingChats.json */,
 				2B70972E28797AFD008C56CE /* Info.plist */,
 			);
 			path = iChat_App;
@@ -109,6 +117,7 @@
 				2B70973D28798330008C56CE /* Extension + UIFont.swift */,
 				2B70973F2879835A008C56CE /* Extension + UIImageView.swift */,
 				2B709754287A2C50008C56CE /* Extension + UISegmentedControl.swift */,
+				2B709766287B0185008C56CE /* Extension + Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,8 +211,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B709764287B0155008C56CE /* waitingChats.json in Resources */,
 				2B70974928799C63008C56CE /* Assets.xcassets in Resources */,
 				2B70972D28797AFD008C56CE /* LaunchScreen.storyboard in Resources */,
+				2B709765287B0155008C56CE /* activeChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +242,7 @@
 				2B70973528798238008C56CE /* Extension + UILabel.swift in Sources */,
 				2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */,
 				2B70974F2879B64E008C56CE /* LoginViewController.swift in Sources */,
+				2B709767287B0185008C56CE /* Extension + Bundle.swift in Sources */,
 				2B70973A287982A4008C56CE /* Extension + UIButton.swift in Sources */,
 				2B709755287A2C50008C56CE /* Extension + UISegmentedControl.swift in Sources */,
 			);
