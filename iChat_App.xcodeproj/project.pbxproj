@@ -32,6 +32,7 @@
 		2B709765287B0155008C56CE /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B709763287B0155008C56CE /* activeChats.json */; };
 		2B709767287B0185008C56CE /* Extension + Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709766287B0185008C56CE /* Extension + Bundle.swift */; };
 		2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709769287B0ED8008C56CE /* ActiveChatCell.swift */; };
+		2B70976C287B5190008C56CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70976B287B5190008C56CE /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		2B709763287B0155008C56CE /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		2B709766287B0185008C56CE /* Extension + Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Bundle.swift"; sourceTree = "<group>"; };
 		2B709769287B0ED8008C56CE /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
+		2B70976B287B5190008C56CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				2B7097412879857D008C56CE /* ButtonFormView.swift */,
 				2B70974C2879A9DF008C56CE /* OneLineTextField.swift */,
 				2B709752287A1A67008C56CE /* AddPhotoView.swift */,
+				2B70976B287B5190008C56CE /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				2B709757287AD45E008C56CE /* ListViewController.swift in Sources */,
 				2B70974D2879A9DF008C56CE /* OneLineTextField.swift in Sources */,
+				2B70976C287B5190008C56CE /* GradientView.swift in Sources */,
 				2B70975B287AD9FC008C56CE /* MainTabBarController.swift in Sources */,
 				2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */,
 				2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */,
