@@ -35,6 +35,7 @@
 		2B70976C287B5190008C56CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70976B287B5190008C56CE /* GradientView.swift */; };
 		2B70976E287B5D1A008C56CE /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70976D287B5D1A008C56CE /* WaitingChatCell.swift */; };
 		2B709771287B616B008C56CE /* SelfConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709770287B616B008C56CE /* SelfConfigureCell.swift */; };
+		2B709773287B67AB008C56CE /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709772287B67AB008C56CE /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		2B70976B287B5190008C56CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2B70976D287B5D1A008C56CE /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		2B709770287B616B008C56CE /* SelfConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfigureCell.swift; sourceTree = "<group>"; };
+		2B709772287B67AB008C56CE /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				2B70974C2879A9DF008C56CE /* OneLineTextField.swift */,
 				2B709752287A1A67008C56CE /* AddPhotoView.swift */,
 				2B70976B287B5190008C56CE /* GradientView.swift */,
+				2B709772287B67AB008C56CE /* SectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				2B709757287AD45E008C56CE /* ListViewController.swift in Sources */,
 				2B70974D2879A9DF008C56CE /* OneLineTextField.swift in Sources */,
+				2B709773287B67AB008C56CE /* SectionHeader.swift in Sources */,
 				2B70976C287B5190008C56CE /* GradientView.swift in Sources */,
 				2B70975B287AD9FC008C56CE /* MainTabBarController.swift in Sources */,
 				2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */,
