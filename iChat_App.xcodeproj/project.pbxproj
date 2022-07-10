@@ -25,6 +25,9 @@
 		2B709751287A1136008C56CE /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709750287A1136008C56CE /* SetupProfileViewController.swift */; };
 		2B709753287A1A67008C56CE /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709752287A1A67008C56CE /* AddPhotoView.swift */; };
 		2B709755287A2C50008C56CE /* Extension + UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709754287A2C50008C56CE /* Extension + UISegmentedControl.swift */; };
+		2B709757287AD45E008C56CE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B709756287AD45E008C56CE /* ListViewController.swift */; };
+		2B70975B287AD9FC008C56CE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70975A287AD9FC008C56CE /* MainTabBarController.swift */; };
+		2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70975C287ADA45008C56CE /* PeopleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		2B709750287A1136008C56CE /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		2B709752287A1A67008C56CE /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		2B709754287A2C50008C56CE /* Extension + UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UISegmentedControl.swift"; sourceTree = "<group>"; };
+		2B709756287AD45E008C56CE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2B70975A287AD9FC008C56CE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2B70975C287ADA45008C56CE /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +88,8 @@
 			children = (
 				2B70972028797AFA008C56CE /* AppDelegate.swift */,
 				2B70972228797AFA008C56CE /* SceneDelegate.swift */,
-				2B70972428797AFA008C56CE /* AuthViewController.swift */,
-				2B70974A2879A330008C56CE /* SignUpViewController.swift */,
-				2B709750287A1136008C56CE /* SetupProfileViewController.swift */,
-				2B70974E2879B64E008C56CE /* LoginViewController.swift */,
+				2B709758287AD91F008C56CE /* SignIn&Auth ViewControllers */,
+				2B709759287AD946008C56CE /* ViewControllers */,
 				2B70974328798BD1008C56CE /* Views */,
 				2B7097362879824B008C56CE /* Extensions */,
 				2B70972B28797AFD008C56CE /* LaunchScreen.storyboard */,
@@ -117,6 +121,27 @@
 				2B709752287A1A67008C56CE /* AddPhotoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2B709758287AD91F008C56CE /* SignIn&Auth ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B70972428797AFA008C56CE /* AuthViewController.swift */,
+				2B70974A2879A330008C56CE /* SignUpViewController.swift */,
+				2B709750287A1136008C56CE /* SetupProfileViewController.swift */,
+				2B70974E2879B64E008C56CE /* LoginViewController.swift */,
+			);
+			path = "SignIn&Auth ViewControllers";
+			sourceTree = "<group>";
+		};
+		2B709759287AD946008C56CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B70975A287AD9FC008C56CE /* MainTabBarController.swift */,
+				2B709756287AD45E008C56CE /* ListViewController.swift */,
+				2B70975C287ADA45008C56CE /* PeopleViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,9 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B709757287AD45E008C56CE /* ListViewController.swift in Sources */,
 				2B70974D2879A9DF008C56CE /* OneLineTextField.swift in Sources */,
+				2B70975B287AD9FC008C56CE /* MainTabBarController.swift in Sources */,
 				2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */,
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
+				2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */,
 				2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */,
 				2B709751287A1136008C56CE /* SetupProfileViewController.swift in Sources */,
 				2B7097402879835A008C56CE /* Extension + UIImageView.swift in Sources */,
