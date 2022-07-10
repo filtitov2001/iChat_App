@@ -29,6 +29,7 @@ class PeopleViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
+    
 
 }
 
