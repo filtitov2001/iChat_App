@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "human10"), contentMode: .scaleAspectFill)
     let nameLabel = UILabel(text: "Felicia Hardy", font: .systemFont(ofSize: 20, weight: .light))
     let aboutLabel = UILabel(text: "Hi! Wanna get to meet?", font: .systemFont(ofSize: 16, weight: .light))
-    let myTextField = UITextField()
+    let myTextField = InsertableTextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,15 @@ class ProfileViewController: UIViewController {
         aboutLabel.numberOfLines = 0
         containerView.backgroundColor = .systemBackground
         containerView.layer.cornerRadius = 30
+        
+        if let button = myTextField.rightView as? UIButton {
+            button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
+        }
     }
     
+    @objc func sendMessage() {
+        print(#function)
+    }
 }
 
 //MARK: - Setup constraints

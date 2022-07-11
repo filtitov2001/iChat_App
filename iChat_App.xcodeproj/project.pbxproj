@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B251F1C287C41D500E4B7D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */; };
+		2B251F1E287C4AEC00E4B7D9 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F1D287C4AEC00E4B7D9 /* InsertableTextField.swift */; };
+		2B251F20287C4FBC00E4B7D9 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F1F287C4FBC00E4B7D9 /* Extension + UIView.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2B251F1D287C4AEC00E4B7D9 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
+		2B251F1F287C4FBC00E4B7D9 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				2B70973428798238008C56CE /* Extension + UILabel.swift */,
 				2B7097372879827F008C56CE /* Entension + StackView.swift */,
 				2B709739287982A4008C56CE /* Extension + UIButton.swift */,
+				2B251F1F287C4FBC00E4B7D9 /* Extension + UIView.swift */,
 				2B70973B287982D4008C56CE /* Extension + UIColor.swift */,
 				2B70973D28798330008C56CE /* Extension + UIFont.swift */,
 				2B70973F2879835A008C56CE /* Extension + UIImageView.swift */,
@@ -157,6 +162,7 @@
 				2B70974C2879A9DF008C56CE /* OneLineTextField.swift */,
 				2B709752287A1A67008C56CE /* AddPhotoView.swift */,
 				2B70976B287B5190008C56CE /* GradientView.swift */,
+				2B251F1D287C4AEC00E4B7D9 /* InsertableTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				2B709779287B7867008C56CE /* MUser.swift in Sources */,
 				2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */,
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
+				2B251F1E287C4AEC00E4B7D9 /* InsertableTextField.swift in Sources */,
 				2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */,
 				2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */,
 				2B251F1C287C41D500E4B7D9 /* ProfileViewController.swift in Sources */,
@@ -310,6 +317,7 @@
 				2B709753287A1A67008C56CE /* AddPhotoView.swift in Sources */,
 				2B7097382879827F008C56CE /* Entension + StackView.swift in Sources */,
 				2B70973C287982D4008C56CE /* Extension + UIColor.swift in Sources */,
+				2B251F20287C4FBC00E4B7D9 /* Extension + UIView.swift in Sources */,
 				2B7097422879857D008C56CE /* ButtonFormView.swift in Sources */,
 				2B70973528798238008C56CE /* Extension + UILabel.swift in Sources */,
 				2B70977D287C24BF008C56CE /* UserCell.swift in Sources */,
