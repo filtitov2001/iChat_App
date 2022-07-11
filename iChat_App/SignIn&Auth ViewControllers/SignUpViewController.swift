@@ -35,6 +35,8 @@ class SignUpViewController: UIViewController {
         button.titleLabel?.font = .avenir20()
         return button
     }()
+    
+    weak var delegate: AuthNavigationDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ class SignUpViewController: UIViewController {
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
 
     @objc private func signUpButtonTapped() {
@@ -50,11 +53,18 @@ class SignUpViewController: UIViewController {
             switch result {
                 
             case .success(let user):
-                self.showAlert(with: "Success!", and: "You've signed up!")
-                print(user.email)
+                self.showAlert(with: "Success!", and: "You've signed up!") {
+                    self.present(SetupProfileViewController(), animated: true)
+                }
             case .failure(let error):
                 self.showAlert(with: "Error!", and: error.localizedDescription)
             }
+        }
+    }
+    
+    @objc private func loginButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.toLoginVC()
         }
     }
 }
