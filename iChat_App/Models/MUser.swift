@@ -8,6 +8,7 @@
 
 
 import Foundation
+import SwiftUI
 
 struct MUser: Hashable, Decodable {
     var username: String
@@ -20,5 +21,15 @@ struct MUser: Hashable, Decodable {
     
     static func == (lhs: MUser, rhs: MUser) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    func contains(filter: String?) -> Bool {
+        guard let filter = filter else { return true}
+        if filter.isEmpty {
+            return true
+        }
+        
+        let lowecassedFilter = filter.lowercased()
+        return username.lowercased().contains(lowecassedFilter)
     }
 }

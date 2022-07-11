@@ -22,4 +22,14 @@ struct MChat: Hashable, Decodable {
     static func == (lhs: MChat, rhs: MChat) -> Bool {
         lhs.id == rhs.id
     }
+    
+    func contains(filter: String?) -> Bool {
+        guard let filter = filter else { return true}
+        if filter.isEmpty {
+            return true
+        }
+        
+        let lowecassedFilter = filter.lowercased()
+        return username.lowercased().contains(lowecassedFilter)
+    }
 }

@@ -37,7 +37,7 @@ class ListViewController: UIViewController {
         setupSearchBar()
         setupCollectionView()
         setupDataSource()
-        reloadData()
+        reloadData(with: nil)
     }
     
     private func setupSearchBar() {
@@ -75,11 +75,16 @@ class ListViewController: UIViewController {
         
     }
     
-    private func reloadData() {
+    private func reloadData(with searchData: String?) {
+        let filteredActiveChats = activeChats.filter { chat in
+            chat.contains(filter: searchData)
+        }
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
+        
         snapshot.appendSections([.waitingChats, .activeChats])
         snapshot.appendItems(waitingChats, toSection: .waitingChats)
-        snapshot.appendItems(activeChats, toSection: .activeChats)
+        snapshot.appendItems(filteredActiveChats, toSection: .activeChats)
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
@@ -200,7 +205,7 @@ extension ListViewController {
 //MARK: - UISearchBarDelegate
 extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("hello theree!")
+        reloadData(with: searchText)
     }
 }
 

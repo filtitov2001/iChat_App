@@ -36,6 +36,7 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         self.containerView.layer.cornerRadius = 4
         self.containerView.clipsToBounds = true
     }
