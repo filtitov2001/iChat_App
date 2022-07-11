@@ -11,5 +11,5 @@ import Foundation
 
 protocol SelfConfigureCell {
     static var reuseID: String { get }
-    func configure(with value: MChat)
+    func configure<U: Hashable>(with value: U)
 }

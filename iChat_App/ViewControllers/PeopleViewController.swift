@@ -49,8 +49,8 @@ class PeopleViewController: UIViewController {
         )
         
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "reuseID")
+            UserCell.self,
+            forCellWithReuseIdentifier: UserCell.reuseID)
         
         
     }
@@ -77,18 +77,17 @@ class PeopleViewController: UIViewController {
     }
 }
 
+//MARK: - Data Source
 extension PeopleViewController {
     private func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, MUser>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<Section, MUser>(collectionView: collectionView, cellProvider: { collectionView, indexPath, user in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError()
             }
             
             switch section {
             case .users:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseID", for: indexPath)
-                cell.backgroundColor = .blue
-                return cell
+                return self.configure(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
             }
         })
         
