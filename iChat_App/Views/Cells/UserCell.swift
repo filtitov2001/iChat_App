@@ -27,7 +27,7 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         self.layer.shadowColor = #colorLiteral(red: 0.7411764706, green: 0.7411764706, blue: 0.7411764706, alpha: 1)
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +39,9 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         
         self.containerView.layer.cornerRadius = 4
         self.containerView.clipsToBounds = true
+        
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
+        userImageView.layer.masksToBounds = true
     }
     
     func configure<U>(with value: U) where U : Hashable {
@@ -54,7 +57,7 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(containerView)
-        containerView.addSubview(userImageView)
+        addSubview(userImageView)
         containerView.addSubview(username)
         
         NSLayoutConstraint.activate([

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B251F1C287C41D500E4B7D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				2B70975A287AD9FC008C56CE /* MainTabBarController.swift */,
 				2B709756287AD45E008C56CE /* ListViewController.swift */,
 				2B70975C287ADA45008C56CE /* PeopleViewController.swift */,
+				2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
 				2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */,
 				2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */,
+				2B251F1C287C41D500E4B7D9 /* ProfileViewController.swift in Sources */,
 				2B709751287A1136008C56CE /* SetupProfileViewController.swift in Sources */,
 				2B7097402879835A008C56CE /* Extension + UIImageView.swift in Sources */,
 				2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */,
