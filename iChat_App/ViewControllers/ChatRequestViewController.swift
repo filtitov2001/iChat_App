@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ChatRequestViewController.swift
 //  iChat_App
 //
 //  Created by Felix Titov on 7/11/22.
@@ -9,72 +9,72 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ChatRequestViewController: UIViewController {
     
     let containerView = UIView()
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "human10"), contentMode: .scaleAspectFill)
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "human8"), contentMode: .scaleAspectFill)
     let nameLabel = UILabel(text: "Felicia Hardy", font: .systemFont(ofSize: 20, weight: .light))
-    let aboutLabel = UILabel(text: "Hi! Wanna get to meet?", font: .systemFont(ofSize: 16, weight: .light))
-    let myTextField = InsertableTextField()
+    let aboutLabel = UILabel(text: "You have new chat request", font: .systemFont(ofSize: 16, weight: .light))
     
+    let acceptButton = UIButton(
+        title: "ACCEPT",
+        titleColor: .white,
+        backgroundColor: .black,
+        font: .laoSangamMN20(),
+        isShadow: false,
+        cornerRadius: 10
+    )
+    
+    let denyButton = UIButton(
+        title: "Deny",
+        titleColor: #colorLiteral(red: 0.8352941176, green: 0.2, blue: 0.2, alpha: 1),
+        backgroundColor: .systemBackground,
+        font: .laoSangamMN20(),
+        isShadow: false,
+        cornerRadius: 10
+    )
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         customizeElements()
         setupConstraints()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-  //      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func customizeElements() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         aboutLabel.translatesAutoresizingMaskIntoConstraints = false
-        myTextField.translatesAutoresizingMaskIntoConstraints = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        aboutLabel.numberOfLines = 0
+        
+        denyButton.layer.borderWidth = 1.2
+        denyButton.layer.borderColor = #colorLiteral(red: 0.8352941176, green: 0.2, blue: 0.2, alpha: 1)
+        
         containerView.backgroundColor = .systemBackground
         containerView.layer.cornerRadius = 30
         
-        if let button = myTextField.rightView as? UIButton {
-            button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
-        }
+        
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        acceptButton.applyGradients(cornerRadius: 10)
     }
-    
-    @objc func sendMessage() {
-        print(#function)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-     //       if self.containerView.frame.origin.y == 0 {
-                self.containerView.frame.origin.y -= keyboardSize.height
-        //    }
-        }
-    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//     //   if self.containerView.frame.origin.y != 0 {
-//       //     self.containerView.frame.origin.y = 1
-//    //    }
-//    }
 }
 
 //MARK: - Setup constraints
-extension ProfileViewController {
+extension ChatRequestViewController {
     private func setupConstraints() {
         view.addSubview(imageView)
         view.addSubview(containerView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(aboutLabel)
-        containerView.addSubview(myTextField)
+        
+        let buttonsStackView = UIStackView(arrangedSubviews: [acceptButton, denyButton], axis: .horizontal, spacing: 7)
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsStackView.distribution = .fillEqually
+        containerView.addSubview(buttonsStackView)
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -103,30 +103,30 @@ extension ProfileViewController {
         ])
         
         NSLayoutConstraint.activate([
-            myTextField.topAnchor.constraint(equalTo: aboutLabel.bottomAnchor, constant: 8),
-            myTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
-            myTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-            myTextField.heightAnchor.constraint(equalToConstant: 48)
+            buttonsStackView.topAnchor.constraint(equalTo: aboutLabel.bottomAnchor, constant: 24),
+            buttonsStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
+            buttonsStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            buttonsStackView.heightAnchor.constraint(equalToConstant: 56)
         ])
+        
     }
 }
 
 //MARK: - SwiftUI
 import SwiftUI
 
-struct ProfileControllerProvider: PreviewProvider {
+struct ChatRequestControllerProvider: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
     
     struct ContainerView: UIViewControllerRepresentable {
-        let viewController = ProfileViewController()
+        let viewController = ChatRequestViewController()
         
-        func makeUIViewController(context: Context) -> some ProfileViewController {
+        func makeUIViewController(context: Context) -> some ChatRequestViewController {
             return viewController
         }
         
         func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
     }
 }
-
