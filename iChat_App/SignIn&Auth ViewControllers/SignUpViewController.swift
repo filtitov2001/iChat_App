@@ -39,12 +39,24 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         view.backgroundColor = .systemBackground
         setupConstraints()
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
 
+    @objc private func signUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmTextField.text) { result in
+            switch result {
+                
+            case .success(let user):
+                self.showAlert(with: "Success!", and: "You've signed up!")
+                print(user.email)
+            case .failure(let error):
+                self.showAlert(with: "Error!", and: error.localizedDescription)
+            }
+        }
+    }
 }
 
 //MARK: - Setup constraints
