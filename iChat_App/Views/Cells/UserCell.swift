@@ -59,6 +59,7 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         addSubview(containerView)
         addSubview(userImageView)
         containerView.addSubview(username)
+
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
