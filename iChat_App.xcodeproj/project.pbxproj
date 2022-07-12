@@ -20,6 +20,8 @@
 		2B251F34287DA7E400E4B7D9 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F33287DA7E400E4B7D9 /* UserError.swift */; };
 		2B251F36287DFB1700E4B7D9 /* GoogleSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F35287DFB1700E4B7D9 /* GoogleSignInDelegate.swift */; };
 		2B251F38287DFE1500E4B7D9 /* Extension + UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F37287DFE1500E4B7D9 /* Extension + UIApplication.swift */; };
+		2B251F3A287E095900E4B7D9 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F39287E095900E4B7D9 /* StorageService.swift */; };
+		2B251F3C287E10EE00E4B7D9 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3B287E10EE00E4B7D9 /* Extension + UIImage.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -71,6 +73,8 @@
 		2B251F33287DA7E400E4B7D9 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		2B251F35287DFB1700E4B7D9 /* GoogleSignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInDelegate.swift; sourceTree = "<group>"; };
 		2B251F37287DFE1500E4B7D9 /* Extension + UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIApplication.swift"; sourceTree = "<group>"; };
+		2B251F39287E095900E4B7D9 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		2B251F3B287E10EE00E4B7D9 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				2B251F2A287CBB4B00E4B7D9 /* Helpers */,
 				2B251F28287CB23600E4B7D9 /* AuthService.swift */,
 				2B251F31287CD59A00E4B7D9 /* FirestoreService.swift */,
+				2B251F39287E095900E4B7D9 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				2B709766287B0185008C56CE /* Extension + Bundle.swift */,
 				2B70977E287C268F008C56CE /* Extension + UIViewController.swift */,
 				2B251F37287DFE1500E4B7D9 /* Extension + UIApplication.swift */,
+				2B251F3B287E10EE00E4B7D9 /* Extension + UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				2B251F2C287CBB5B00E4B7D9 /* Validators.swift in Sources */,
 				2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */,
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
+				2B251F3A287E095900E4B7D9 /* StorageService.swift in Sources */,
 				2B251F30287CC58300E4B7D9 /* AuthNavigationDelegate.swift in Sources */,
 				2B251F1E287C4AEC00E4B7D9 /* InsertableTextField.swift in Sources */,
 				2B70975D287ADA45008C56CE /* PeopleViewController.swift in Sources */,
@@ -436,6 +443,7 @@
 				2B7097402879835A008C56CE /* Extension + UIImageView.swift in Sources */,
 				2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */,
 				2B709753287A1A67008C56CE /* AddPhotoView.swift in Sources */,
+				2B251F3C287E10EE00E4B7D9 /* Extension + UIImage.swift in Sources */,
 				2B251F34287DA7E400E4B7D9 /* UserError.swift in Sources */,
 				2B7097382879827F008C56CE /* Entension + StackView.swift in Sources */,
 				2B70973C287982D4008C56CE /* Extension + UIColor.swift in Sources */,
