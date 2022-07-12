@@ -59,6 +59,25 @@ struct MUser: Hashable, Decodable {
         self.description = description
     }
     
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
+        guard
+            let username = data["username"] as? String,
+            let id = data["uid"] as? String,
+            let sex = data["sex"] as? String,
+            let email = data["email"] as? String,
+            let description = data["description"] as? String,
+            let avatarStringURL = data["avatarStringURL"] as? String
+        else { return nil }
+        
+        self.username = username
+        self.id = id
+        self.email = email
+        self.avatarStringURL = avatarStringURL
+        self.sex = sex
+        self.description = description
+    }
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

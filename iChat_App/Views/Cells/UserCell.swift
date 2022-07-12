@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SDWebImage
 
 class UserCell: UICollectionViewCell, SelfConfigureCell {
     
@@ -28,6 +29,7 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        userImageView.contentMode = .scaleAspectFill
     }
     
     required init?(coder: NSCoder) {
@@ -44,10 +46,15 @@ class UserCell: UICollectionViewCell, SelfConfigureCell {
         userImageView.layer.masksToBounds = true
     }
     
+    override func prepareForReuse() {
+        userImageView.image = nil
+    }
+    
     func configure<U>(with value: U) where U : Hashable {
         guard let user: MUser = value as? MUser else { return }
-        userImageView.image = UIImage(named: user.avatarStringURL)
         username.text = user.username
+        guard let url = URL(string: user.avatarStringURL) else { return }
+        userImageView.sd_setImage(with: url)
         
     }
     
