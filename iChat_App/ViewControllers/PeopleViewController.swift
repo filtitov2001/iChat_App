@@ -17,6 +17,8 @@ class PeopleViewController: UIViewController {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
     
+    private let currentUser: MUser
+    
     enum Section: Int, CaseIterable {
         case users
         
@@ -27,7 +29,17 @@ class PeopleViewController: UIViewController {
             }
         }
     }
-
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,9 +104,18 @@ class PeopleViewController: UIViewController {
         let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { _ in
             do {
                 try Auth.auth().signOut()
-                UIApplication.shared.connectedScenes
-                    .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-                    .first { $0.isKeyWindow }?.rootViewController = AuthViewController()
+                
+                let rootVC = AuthViewController()
+                rootVC.modalPresentationStyle = .fullScreen
+                rootVC.modalTransitionStyle = .coverVertical
+                self.present(rootVC, animated: true)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    UIApplication.shared.connectedScenes
+                        .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                        .first { $0.isKeyWindow }?.rootViewController = AuthViewController()
+                }
+                
             } catch {
                 print("Error: \(error.localizedDescription)")
             }

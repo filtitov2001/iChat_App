@@ -54,7 +54,9 @@ class LoginViewController: UIViewController {
                         switch result {
                             
                         case .success(let mUser):
-                            self.present(MainTabBarController(), animated: true)
+                            let mainTabBarController = MainTabBarController(currentUser: mUser)
+                            mainTabBarController.modalPresentationStyle = .fullScreen
+                            self.present(mainTabBarController, animated: true)
                         case .failure(_):
                             self.present(SetupProfileViewController(currentUser: user), animated: true)
                         }
