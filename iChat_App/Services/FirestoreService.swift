@@ -21,6 +21,21 @@ class FirestoreService {
     
     private init() {}
     
+    func getUserData(user: User, completion: @escaping (Result<MUser, Error>) -> Void) {
+        let docRef = usersRef.document(user.uid)
+        docRef.getDocument { document, error in
+            if let document = document, document.exists {
+                guard let mUser = MUser(document: document) else {
+                    completion(.failure(UserError.cannotUnwrapToMUser))
+                    return
+                }
+                completion(.success(mUser))
+            } else {
+                completion(.failure(UserError.cannotGetUserInfo))
+            }
+        }
+    }
+    
     func saveProfileWith(
         id: String,
         email: String,

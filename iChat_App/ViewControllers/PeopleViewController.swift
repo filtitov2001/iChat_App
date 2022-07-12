@@ -8,10 +8,12 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class PeopleViewController: UIViewController {
     
-    let users = Bundle.main.decode([MUser].self, from: "users.json")
+  //  let users = Bundle.main.decode([MUser].self, from: "users.json")
+    let users = [MUser]()
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
     
@@ -33,6 +35,7 @@ class PeopleViewController: UIViewController {
         setupCollectionView()
         createDataSource()
         reloadData(with: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
     }
     
     private func setupCollectionView() {
@@ -77,6 +80,30 @@ class PeopleViewController: UIViewController {
         snapshot.appendSections([.users])
         snapshot.appendItems(filtered, toSection: .users)
         dataSource?.apply(snapshot, animatingDifferences: true)
+    }
+    
+    @objc private func signOut() {
+        let alertController = UIAlertController(
+            title: nil,
+            message: "Are you sure you want to sign out?",
+            preferredStyle: .alert
+        )
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { _ in
+            do {
+                try Auth.auth().signOut()
+                UIApplication.shared.connectedScenes
+                    .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                    .first { $0.isKeyWindow }?.rootViewController = AuthViewController()
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(signOutAction)
+        
+        present(alertController, animated: true)
     }
 }
 

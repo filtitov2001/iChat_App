@@ -56,7 +56,9 @@ class SetupProfileViewController: UIViewController {
                 switch result {
                     
                 case .success(_):
-                    self.showAlert(with: "Success!", and: "Have a nice chat!")
+                    self.showAlert(with: "Success!", and: "Have a nice chat!") {
+                        self.present(MainTabBarController(), animated: true)
+                    }
                 case .failure(let error):
                     self.showAlert(with: "Error!", and: error.localizedDescription)
                 }
