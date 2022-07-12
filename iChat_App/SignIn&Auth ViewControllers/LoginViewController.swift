@@ -8,6 +8,9 @@
 
 
 import UIKit
+import GoogleSignIn
+import FirebaseAuth
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -43,6 +46,7 @@ class LoginViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(signInWithGoogle), for: .touchUpInside)
     }
     
     @objc private func loginButtonTapped() {
@@ -143,6 +147,43 @@ extension LoginViewController {
         ])
     }
     
+}
+
+//MARK: - GoogleSignIn
+extension LoginViewController: GoogleSignInDelegate {
+    @objc func signInWithGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+            
+            AuthService.shared.loginWithGoogle(user: user, error: error) { result in
+                switch result {
+                case .success(let user):
+                    FirestoreService.shared.getUserData(user: user) { result in
+                        switch result {
+                            
+                        case .success(let mUser):
+                            UIApplication.getTopViewController()?.showAlert(with: "Success!", and: "You've signed in!") {
+                                let mainTabBarController = MainTabBarController(currentUser: mUser)
+                                mainTabBarController.modalPresentationStyle = .fullScreen
+                                UIApplication.getTopViewController()?.present(mainTabBarController, animated: true)
+                            }
+                        case .failure(_):
+                            UIApplication.getTopViewController()?.showAlert(with: "Success!", and: "You've signed up!") {
+                                UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user), animated: true)
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    self.showAlert(with: "Error!", and: error.localizedDescription)
+                }
+            }
+        }
+    }
 }
 
 //MARK: - SwiftUI
