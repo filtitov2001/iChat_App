@@ -11,8 +11,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
-    let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats.json")
+    let activeChats = [MChat]()
+    let waitingChats = [MChat]()
     
     private let currentUser: MUser
     

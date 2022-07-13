@@ -35,8 +35,7 @@ class SetupProfileViewController: UIViewController {
         if let username = currentUser.displayName {
             fullNameTextField.text = username
         }
-        
-        //TODO: - userImage
+    
         if let photoURL = currentUser.photoURL {
             fullImageView.circleImageView.sd_setImage(with: photoURL)
         }

@@ -52,6 +52,7 @@ class PeopleViewController: UIViewController {
         setupSearchBar()
         setupCollectionView()
         createDataSource()
+        
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
         
@@ -83,7 +84,7 @@ class PeopleViewController: UIViewController {
             UserCell.self,
             forCellWithReuseIdentifier: UserCell.reuseID)
         
-        
+        collectionView.delegate = self
     }
     
     private func setupSearchBar() {
@@ -239,6 +240,15 @@ extension PeopleViewController {
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension PeopleViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        present(profileVC, animated: true)
     }
 }
 
