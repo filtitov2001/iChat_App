@@ -20,11 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-//        do {
-//            try Auth.auth().signOut()
-//        } catch let error as NSError {
-//            print(print(error))
-//        }
+
        
         if let user = Auth.auth().currentUser {
             FirestoreService.shared.getUserData(user: user) { result in

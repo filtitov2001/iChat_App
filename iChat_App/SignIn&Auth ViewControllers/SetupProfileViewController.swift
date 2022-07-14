@@ -83,6 +83,11 @@ class SetupProfileViewController: UIViewController {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
 }
 
 //MARK: - Setup constraints
