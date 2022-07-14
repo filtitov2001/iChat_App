@@ -11,5 +11,6 @@ target 'iChat_App' do
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'
   pod 'SDWebImage', '~> 5.0'
+  pod 'MessageKit'
 
 end

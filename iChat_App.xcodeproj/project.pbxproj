@@ -25,6 +25,7 @@
 		2B251F3E287E1F9700E4B7D9 /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3D287E1F9700E4B7D9 /* ListenerService.swift */; };
 		2B251F40287F81BD00E4B7D9 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3F287F81BD00E4B7D9 /* MMessage.swift */; };
 		2B251F42287F98EF00E4B7D9 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */; };
+		2B251F44287FB72B00E4B7D9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F43287FB72B00E4B7D9 /* ChatViewController.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -81,6 +82,7 @@
 		2B251F3D287E1F9700E4B7D9 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		2B251F3F287F81BD00E4B7D9 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
 		2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
+		2B251F43287FB72B00E4B7D9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				2B70975C287ADA45008C56CE /* PeopleViewController.swift */,
 				2B251F1B287C41D500E4B7D9 /* ProfileViewController.swift */,
 				2B251F21287C55AF00E4B7D9 /* ChatRequestViewController.swift */,
+				2B251F43287FB72B00E4B7D9 /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				2B70974B2879A330008C56CE /* SignUpViewController.swift in Sources */,
 				2B709779287B7867008C56CE /* MUser.swift in Sources */,
 				2B251F2C287CBB5B00E4B7D9 /* Validators.swift in Sources */,
+				2B251F44287FB72B00E4B7D9 /* ChatViewController.swift in Sources */,
 				2B251F3E287E1F9700E4B7D9 /* ListenerService.swift in Sources */,
 				2B70976A287B0ED8008C56CE /* ActiveChatCell.swift in Sources */,
 				2B70973E28798330008C56CE /* Extension + UIFont.swift in Sources */,
