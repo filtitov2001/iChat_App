@@ -33,12 +33,31 @@ class ChatRequestViewController: UIViewController {
         isShadow: false,
         cornerRadius: 10
     )
-
+    
+    private var chat: MChat
+    
+    weak var delegate: WaitingChatsNavigation?
+    
+    init(chat: MChat) {
+        self.chat = chat
+        nameLabel.text = chat.friendUsername
+        imageView.sd_setImage(with: URL(string: chat.friendAvatarStringURL))
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         customizeElements()
         setupConstraints()
+        
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
     }
     
     private func customizeElements() {
@@ -60,6 +79,18 @@ class ChatRequestViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         acceptButton.applyGradients(cornerRadius: 10)
+    }
+    
+    @objc private func denyButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.removeWaitinfChats(chat: self.chat)
+        }
+    }
+    
+    @objc private func acceptButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.chatToActive(chat: self.chat)
+        }
     }
 }
 
@@ -112,21 +143,4 @@ extension ChatRequestViewController {
     }
 }
 
-//MARK: - SwiftUI
-import SwiftUI
 
-struct ChatRequestControllerProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        let viewController = ChatRequestViewController()
-        
-        func makeUIViewController(context: Context) -> some ChatRequestViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-    }
-}

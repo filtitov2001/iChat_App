@@ -19,6 +19,10 @@ class FirestoreService {
         return db.collection("users")
     }
     
+    private var waitingChatsRef: CollectionReference {
+        return db.collection(["users", currentUser.id, "waitingChats"].joined(separator: "/"))
+    }
+    
     var currentUser: MUser!
     
     private init() {}
@@ -112,6 +116,59 @@ class FirestoreService {
                 completion(.success(Void()))
             }
             
+        }
+    }
+    
+    func deleteWaitingChat(chat: MChat, completion: @escaping (Result<Void, Error>) -> Void) {
+        waitingChatsRef.document(chat.friendId).delete { error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            
+            completion(.success(Void()))
+            self.deleteMessages(chat: chat, completion: completion)
+        }
+    }
+    
+    func deleteMessages(chat: MChat, completion: @escaping (Result<Void, Error>) -> Void) {
+        let reference = waitingChatsRef.document(chat.friendId).collection("messages")
+        
+        getWaitingChatMessages(chat: chat) { result in
+            switch result {
+                
+            case .success(let messages):
+                for message in messages {
+                    guard let documentId = message.id else { return }
+                    let messageRef = reference.document(documentId)
+                    messageRef.delete { error in
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        
+                        completion(.success(Void()))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getWaitingChatMessages(chat: MChat, completion: @escaping (Result<[MMessage], Error>) -> Void) {
+        let refference = waitingChatsRef.document(chat.friendId).collection("messages")
+        var messages = [MMessage]()
+        refference.getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            for document in querySnapshot!.documents {
+                guard let message = MMessage(document: document) else { return }
+                messages.append(message)
+            }
+            
+            completion(.success(messages))
         }
     }
 }

@@ -102,6 +102,7 @@ class PeopleViewController: UIViewController {
     }
     
     private func reloadData(with searchData: String?) {
+        
         let filtered = users.filter { user in
             user.contains(filter: searchData)
         }

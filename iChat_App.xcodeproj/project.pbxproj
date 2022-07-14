@@ -24,6 +24,7 @@
 		2B251F3C287E10EE00E4B7D9 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3B287E10EE00E4B7D9 /* Extension + UIImage.swift */; };
 		2B251F3E287E1F9700E4B7D9 /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3D287E1F9700E4B7D9 /* ListenerService.swift */; };
 		2B251F40287F81BD00E4B7D9 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F3F287F81BD00E4B7D9 /* MMessage.swift */; };
+		2B251F42287F98EF00E4B7D9 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -79,6 +80,7 @@
 		2B251F3B287E10EE00E4B7D9 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		2B251F3D287E1F9700E4B7D9 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		2B251F3F287F81BD00E4B7D9 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
+		2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				2B709770287B616B008C56CE /* SelfConfigureCell.swift */,
 				2B251F2F287CC58300E4B7D9 /* AuthNavigationDelegate.swift */,
 				2B251F35287DFB1700E4B7D9 /* GoogleSignInDelegate.swift */,
+				2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */,
 				2B709753287A1A67008C56CE /* AddPhotoView.swift in Sources */,
 				2B251F3C287E10EE00E4B7D9 /* Extension + UIImage.swift in Sources */,
+				2B251F42287F98EF00E4B7D9 /* WaitingChatsNavigation.swift in Sources */,
 				2B251F34287DA7E400E4B7D9 /* UserError.swift in Sources */,
 				2B7097382879827F008C56CE /* Entension + StackView.swift in Sources */,
 				2B70973C287982D4008C56CE /* Extension + UIColor.swift in Sources */,
