@@ -9,6 +9,8 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
+import SDWebImage
 
 class ChatViewController: MessagesViewController {
     
@@ -34,6 +36,19 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         
         configureMessageInputBar()
+        
+        if let layout = messagesCollectionView.collectionViewLayout as?
+            MessagesCollectionViewFlowLayout {
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+        }
+        
+        messageInputBar.delegate = self
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        
+        messagesCollectionView.backgroundColor = .mainWhite()
     }
     
     func configureMessageInputBar() {
@@ -60,15 +75,25 @@ class ChatViewController: MessagesViewController {
     }
     
     func configureSendButton() {
-            messageInputBar.sendButton.setImage(UIImage(named: "Sent"), for: .normal)
-            messageInputBar.sendButton.applyGradients(cornerRadius: 10)
-            messageInputBar.setRightStackViewWidthConstant(to: 56, animated: false)
-            messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 6, right: 30)
-            messageInputBar.sendButton.setSize(CGSize(width: 48, height: 48), animated: false)
-            messageInputBar.middleContentViewPadding.right = -38
-        }
+        messageInputBar.sendButton.setImage(UIImage(named: "Sent"), for: .normal)
+        messageInputBar.sendButton.applyGradients(cornerRadius: 10)
+        messageInputBar.setRightStackViewWidthConstant(to: 56, animated: false)
+        messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 6, right: 30)
+        messageInputBar.sendButton.setSize(CGSize(width: 48, height: 48), animated: false)
+        messageInputBar.middleContentViewPadding.right = -38
+    }
+    
+    private func insertNewMessage(message: MMessage) {
+        guard !messages.contains(message) else { return }
+        messages.append(message)
+        
+        messages.sort()
+        
+        messagesCollectionView.reloadData()
+    }
 }
 
+//MARK: - MessagesDataSource
 extension ChatViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
@@ -87,3 +112,40 @@ extension ChatViewController: MessagesDataSource {
         messages.count
     }
 }
+
+//MARK: - MessagesDataSource
+extension ChatViewController: MessagesLayoutDelegate {
+    func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        CGSize(width: 0, height: 8)
+    }
+}
+
+//MARK: - MessagesDisplayDelegate
+extension ChatViewController: MessagesDisplayDelegate {
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        isFromCurrentSender(message: message) ? .secondarySystemFill : #colorLiteral(red: 0.7882352941, green: 0.631372549, blue: 0.9411764706, alpha: 1)
+    }
+    
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        isFromCurrentSender(message: message) ? .label : .white
+    }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.isHidden = true
+        avatarView.frame.size = .zero
+    }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        .bubble
+    }
+    
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        let message = MMessage(user: user, content: text)
+        insertNewMessage(message: message)
+        inputBar.inputTextView.text = ""
+    }
+}
+
