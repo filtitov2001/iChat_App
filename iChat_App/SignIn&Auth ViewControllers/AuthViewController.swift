@@ -72,17 +72,19 @@ extension AuthViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImageView.heightAnchor.constraint(equalToConstant: 50),
-            logoImageView.widthAnchor.constraint(equalToConstant: 350)
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+//            ,
+//            logoImageView.heightAnchor.constraint(equalToConstant: 20),
+//            logoImageView.widthAnchor.constraint(equalToConstant: 20)
         ])
-        
+      
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),
+            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20)
         ])
     }
 }
@@ -139,7 +141,15 @@ import SwiftUI
 
 struct ViewControllerProvider: PreviewProvider {
     static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
+        ContainerView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 13"))
+            .previewDisplayName("iPhone 13")
+            .edgesIgnoringSafeArea(.all)
+
+        ContainerView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (1st generation)"))
+            .previewDisplayName("iPhone SE (1st generation)")
+            .edgesIgnoringSafeArea(.all)
     }
     
     struct ContainerView: UIViewControllerRepresentable {
