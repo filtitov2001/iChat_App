@@ -14,35 +14,48 @@ import Firebase
 
 class AuthViewController: UIViewController {
     
-    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFill)
+    private let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFill)
     
-    let googleLabel = UILabel(text: "Get started with")
-    let emailLabel = UILabel(text: "Or sign up with")
-    let alreadyOnBoardLabel = UILabel(text: "Already onboard?")
+    private let orLabel = UILabel(text: "OR", font: .avenir15())
+    private let alreadyOnBoardLabel = UILabel(text: "Already have an account?")
     
-    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
-    let emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonDark())
-    let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
+    private let googleButton = UIButton(
+        title: "Login with Google",
+        titleColor: .black,
+        backgroundColor: .white,
+        isShadow: true
+    )
     
-    let signUpVC = SignUpViewController()
-    let loginVC = LoginViewController()
+    private let emailButton = UIButton(
+        title: "Sign up with Email",
+        titleColor: .white,
+        backgroundColor: .buttonDark(),
+        isShadow: true
+    )
+    
+    private let loginButton = UIButton(
+        title: "Login",
+        titleColor: .buttonRed(),
+        backgroundColor: .white,
+        isShadow: true
+    )
+    
+    private let signUpVC = SignUpViewController()
+    private let loginVC = LoginViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        googleButton.cutomizedGoogleButton()
-        view.backgroundColor = .systemBackground
+        setupConstraintsForButtons()
         setupConstraints()
-        
-        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        googleButton.addTarget(self, action: #selector(signInWithGoogle), for: .touchUpInside)
+        setupUI()
         
         signUpVC.delegate = self
         loginVC.delegate = self
         
-        
-        
+        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(signInWithGoogle), for: .touchUpInside)
     }
     
     @objc private func emailButtonTapped() {
@@ -54,41 +67,86 @@ class AuthViewController: UIViewController {
     }
 }
 
-//MARK: - Setup constraints
+//MARK: - Work with UI
 extension AuthViewController {
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+        
+        googleButton.cutomizedGoogleButton()
+        emailButton.applyGradients(cornerRadius: 15)
+        
+        orLabel.minimumScaleFactor = 0.5
+        orLabel.textAlignment = .center
+        
+        alreadyOnBoardLabel.minimumScaleFactor = 0.5
+        alreadyOnBoardLabel.textAlignment = .center
+        
+    }
+    
+    private func setupConstraintsForButtons() {
+        googleButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        emailButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
     private func setupConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let googleView = ButtonFormView(label: googleLabel, button: googleButton)
-        let emailView = ButtonFormView(label: emailLabel, button: emailButton)
-        let loginView = ButtonFormView(label: alreadyOnBoardLabel, button: loginButton)
-        
-        let stackView = UIStackView(
-            arrangedSubviews: [googleView, emailView, loginView], axis: .vertical,
-        spacing: 40)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(logoImageView)
-        view.addSubview(stackView)
+        
+        let signUpStackView = UIStackView(
+            arrangedSubviews: [googleButton, orLabel, emailButton], axis: .vertical,
+        spacing: 10)
+        signUpStackView.translatesAutoresizingMaskIntoConstraints = false
+        signUpStackView.alignment = .fill
+        signUpStackView.distribution = .equalSpacing
+        
+        let loginStackView = UIStackView(
+            arrangedSubviews: [
+                alreadyOnBoardLabel,
+                loginButton
+            ],
+            axis: .vertical,
+            spacing: 10
+        )
+        loginStackView.translatesAutoresizingMaskIntoConstraints = false
+        loginStackView.alignment = .fill
+        loginStackView.distribution = .equalSpacing
+        
+        let mainStackView = UIStackView(
+            arrangedSubviews: [
+                signUpStackView,
+                loginStackView
+            ],
+            axis: .vertical,
+            spacing: 40
+        )
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.alignment = .fill
+        mainStackView.distribution = .equalSpacing
+        
+        view.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-//            ,
-//            logoImageView.heightAnchor.constraint(equalToConstant: 20),
-//            logoImageView.widthAnchor.constraint(equalToConstant: 20)
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
-      
+        
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20)
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            mainStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.536972, constant: 0)
         ])
+        
     }
+    
+    
 }
 
+//MARK: - AuthNavigationDelegate
 extension AuthViewController: AuthNavigationDelegate {
     func toLoginVC() {
         present(loginVC, animated: true)
@@ -119,8 +177,7 @@ extension AuthViewController: GoogleSignInDelegate {
                         case .success(let mUser):
                             UIApplication.getTopViewController()?.showAlert(with: "Success!", and: "You've signed in!") {
                                 let mainTabBarController = MainTabBarController(currentUser: mUser)
-                                mainTabBarController.modalPresentationStyle = .fullScreen
-                                UIApplication.getTopViewController()?.present(mainTabBarController, animated: true)
+                                self.changeRootViewController(rootViewController: mainTabBarController)
                             }
                         case .failure(_):
                             UIApplication.getTopViewController()?.showAlert(with: "Success!", and: "You've signed up!") {

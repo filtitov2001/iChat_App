@@ -17,7 +17,7 @@ extension UIButton {
                      backgroundColor: UIColor,
                      font: UIFont? = .avenir20(),
                      isShadow: Bool = false,
-                     cornerRadius: CGFloat = 4) {
+                     cornerRadius: CGFloat = 15) {
         self.init(type: .system)
         
         self.setTitle(title, for: .normal)
@@ -44,7 +44,7 @@ extension UIButton {
         googleLogo.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(googleLogo)
         
-        googleLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
+        googleLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         googleLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     

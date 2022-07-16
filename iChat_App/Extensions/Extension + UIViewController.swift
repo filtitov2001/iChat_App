@@ -29,4 +29,17 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
         
     }
+    
+    func changeRootViewController(rootViewController: UIViewController) {
+        let rootVC = rootViewController
+        rootVC.modalPresentationStyle = .fullScreen
+        rootVC.modalTransitionStyle = .coverVertical
+        UIApplication.getTopViewController()?.present(rootVC, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            UIApplication.shared.connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .first { $0.isKeyWindow }?.rootViewController = rootVC
+        }
+    }
 }
