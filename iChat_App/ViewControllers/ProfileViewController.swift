@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     let aboutLabel = UILabel(text: "Hi! Wanna get to meet?", font: .systemFont(ofSize: 16, weight: .light))
     let myTextField = InsertableTextField()
     
+    let closeButton = CloseButton(tintColor: #colorLiteral(red: 0.5411764706, green: 0.1176470588, blue: 0.2784313725, alpha: 1))
+    
     private let user: MUser
     
     init(user: MUser) {
@@ -39,6 +41,8 @@ class ProfileViewController: UIViewController {
         customizeElements()
         setupConstraints()
         
+        closeButton.addTarget(self, action: #selector(closeVC), for: .touchUpInside)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
   //      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -49,6 +53,7 @@ class ProfileViewController: UIViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         aboutLabel.translatesAutoresizingMaskIntoConstraints = false
         myTextField.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         
         aboutLabel.numberOfLines = 0
         containerView.backgroundColor = .systemBackground
@@ -84,6 +89,10 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @objc func closeVC() {
+        dismiss(animated: true)
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
      //       if self.containerView.frame.origin.y == 0 {
@@ -97,6 +106,13 @@ class ProfileViewController: UIViewController {
 //       //     self.containerView.frame.origin.y = 1
 //    //    }
 //    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        closeButton.layer.cornerRadius = closeButton.frame.height / 2
+        closeButton.layer.masksToBounds = true
+    }
+    
 }
 
 //MARK: - Setup constraints
@@ -104,9 +120,15 @@ extension ProfileViewController {
     private func setupConstraints() {
         view.addSubview(imageView)
         view.addSubview(containerView)
+        view.addSubview(closeButton)
         containerView.addSubview(nameLabel)
         containerView.addSubview(aboutLabel)
         containerView.addSubview(myTextField)
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),

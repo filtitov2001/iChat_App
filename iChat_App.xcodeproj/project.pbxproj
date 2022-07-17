@@ -27,6 +27,7 @@
 		2B251F42287F98EF00E4B7D9 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */; };
 		2B251F44287FB72B00E4B7D9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F43287FB72B00E4B7D9 /* ChatViewController.swift */; };
 		2B251F46287FE21500E4B7D9 /* Extension + UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B251F45287FE21500E4B7D9 /* Extension + UIScrollView.swift */; };
+		2B333F61288491910064BAD7 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B333F60288491910064BAD7 /* CloseButton.swift */; };
 		2B70972128797AFA008C56CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972028797AFA008C56CE /* AppDelegate.swift */; };
 		2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972228797AFA008C56CE /* SceneDelegate.swift */; };
 		2B70972528797AFA008C56CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70972428797AFA008C56CE /* AuthViewController.swift */; };
@@ -86,6 +87,7 @@
 		2B251F41287F98EF00E4B7D9 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		2B251F43287FB72B00E4B7D9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2B251F45287FE21500E4B7D9 /* Extension + UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIScrollView.swift"; sourceTree = "<group>"; };
+		2B333F60288491910064BAD7 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		2B70971D28797AFA008C56CE /* iChat_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B70972028797AFA008C56CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B70972228797AFA008C56CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				2B709752287A1A67008C56CE /* AddPhotoView.swift */,
 				2B70976B287B5190008C56CE /* GradientView.swift */,
 				2B251F1D287C4AEC00E4B7D9 /* InsertableTextField.swift */,
+				2B333F60288491910064BAD7 /* CloseButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				2B251F36287DFB1700E4B7D9 /* GoogleSignInDelegate.swift in Sources */,
 				2B70977D287C24BF008C56CE /* UserCell.swift in Sources */,
 				2B70976E287B5D1A008C56CE /* WaitingChatCell.swift in Sources */,
+				2B333F61288491910064BAD7 /* CloseButton.swift in Sources */,
 				2B70972328797AFA008C56CE /* SceneDelegate.swift in Sources */,
 				2B70974F2879B64E008C56CE /* LoginViewController.swift in Sources */,
 				2B251F46287FE21500E4B7D9 /* Extension + UIScrollView.swift in Sources */,

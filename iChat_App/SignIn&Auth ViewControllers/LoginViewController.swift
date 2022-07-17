@@ -32,6 +32,10 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    
+    let closeButton = CloseButton(tintColor: #colorLiteral(red: 0.5411764706, green: 0.1176470588, blue: 0.2784313725, alpha: 1))
+    
+    
     let emailTextField = OneLineTextField(font: .avenir20())
     let passwordTextField = OneLineTextField(font: .avenir20())
     
@@ -44,9 +48,17 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupConstraints()
         
+        
+        
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(signInWithGoogle), for: .touchUpInside)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        closeButton.layer.cornerRadius = closeButton.frame.height / 2
+        closeButton.layer.masksToBounds = true
     }
     
     @objc private func loginButtonTapped() {
@@ -121,13 +133,20 @@ extension LoginViewController {
         )
         bottomStackView.alignment = .firstBaseline
         
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(closeButton)
         view.addSubview(welcomeLabel)
         view.addSubview(stackView)
         view.addSubview(bottomStackView)
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
         
         NSLayoutConstraint.activate([
             welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
@@ -191,13 +210,21 @@ import SwiftUI
 
 struct LoginControllerProvider: PreviewProvider {
     static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
+        ContainerView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 13"))
+            .previewDisplayName("iPhone 13")
+            .edgesIgnoringSafeArea(.all)
+
+        ContainerView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (1st generation)"))
+            .previewDisplayName("iPhone SE (1st generation)")
+            .edgesIgnoringSafeArea(.all)
     }
     
     struct ContainerView: UIViewControllerRepresentable {
-        let viewController = LoginViewController()
+        let viewController = AuthViewController()
         
-        func makeUIViewController(context: Context) -> some LoginViewController {
+        func makeUIViewController(context: Context) -> some AuthViewController {
             return viewController
         }
         

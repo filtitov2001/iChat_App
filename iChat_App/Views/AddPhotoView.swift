@@ -44,6 +44,8 @@ class AddPhotoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             circleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),

@@ -167,6 +167,7 @@ extension AuthViewController: GoogleSignInDelegate {
         // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
             
+            //TODO: - Clean up this auth method
             AuthService.shared.loginWithGoogle(user: user, error: error) { result in
                 switch result {
                 case .success(let user):
